@@ -57,7 +57,7 @@
         </q-list>
 
         <div class="row items-center q-pa-sm">
-          <div class="col-3">
+          <div class="col-8 col-md-6">
             <q-input dark dense filled v-model="searchText" label="Search" />
           </div>
           <div class="col-grow q-pl-md">
@@ -81,7 +81,7 @@
         </div>
       </q-form>
 
-      <div v-if="ready" class="q-px-xl q-mt-md">
+      <div v-if="ready" class="q-px-none q-px-md-xl q-mt-md">
         <div
           v-if="
             filteredEquipmentList &&
@@ -91,7 +91,7 @@
           <div
             v-for="item in filteredEquipmentList"
             :key="item.id"
-            class="q-px-xl"
+            class="q-px-none q-px-md-xl"
           >
             <EquipmentInfo :equipment="item" class="q-mb-sm" />
           </div>
@@ -106,6 +106,14 @@
       <div v-else>
         <CircularProgress />
       </div>
+
+      <q-page-scroller
+        position="bottom-right"
+        :scroll-offset="150"
+        :offset="[18, 18]"
+      >
+        <q-btn fab glossy icon="keyboard_arrow_up" color="grey" padding="sm" />
+      </q-page-scroller>
     </div>
 
     <div v-else>

@@ -19,7 +19,7 @@
           <StatInfo :stat="equipment.limitBreakMaxStat" />
         </div>
 
-        <div ref="skill" v-if="skill" class="q-px-sm q-mt-md">
+        <div ref="skill" v-if="skill" class="q-px-sm q-mt-xs">
           <SkillInfo
             :name="skill.name"
             :rowTypeAfterCast="skill.rowTypeAfterCast"

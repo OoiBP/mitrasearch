@@ -1,5 +1,5 @@
 <template>
-  <div class="radius-bordered q-mb-sm q-pa-xs">
+  <div class="radius-bordered q-mb-xs q-pa-xs">
     <div class="row div-bordered-btm">
       <div class="col-3">
         <div class="text-bold">{{ name }}</div>
