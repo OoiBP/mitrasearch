@@ -201,6 +201,9 @@ export default defineComponent({
           if (snapshot.exists()) {
             this.weaponTypeOptions = snapshot.val();
             this.weaponTypeOptions.shift(); // Remove first empty data
+            this.weaponTypeOptions = this.weaponTypeOptions.filter(
+              (item) => item.id !== 6
+            ); // Note: remove weapon type id 6, currently empty
             this.loaded = true;
           } else {
             console.log("No data available");

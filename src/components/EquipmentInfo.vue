@@ -4,7 +4,7 @@
       <q-card flat square class="outset-bordered" :class="getElementBg">
         <div class="row items-center div-bordered-btm">
           <div class="col-3 q-pl-sm">
-            <img :src="imagePath" alt="thumbnail" style="max-width: 50px" />
+            <img :src="imagePath" alt="thumbnail" style="max-width: 40px" />
           </div>
           <div class="col-3">{{ equipment.name }}</div>
           <div class="col-3">Lv. {{ equipment.maxLevelLimit }}</div>
@@ -25,6 +25,7 @@
             :rowTypeAfterCast="skill.rowTypeAfterCast"
             :castDuration="skill.castDuration"
             :cooldown="skill.cooldown"
+            :maxLevel="skill.maxLevelLimit"
             :display="skill.display"
           />
           <SkillInfo
@@ -32,6 +33,7 @@
             :rowTypeAfterCast="skill.rowTypeAfterCast"
             :castDuration="skill.enhancedCastDuration"
             :cooldown="skill.enhancedCooldown"
+            :maxLevel="skill.maxLevelLimit"
             :display="skill.displayForEnhancement"
           />
         </div>

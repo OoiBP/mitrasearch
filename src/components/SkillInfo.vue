@@ -14,11 +14,11 @@
       </div>
       <div class="col-3 row">
         <div class="q-mr-xs">Cast:</div>
-        <div>{{ parseInt(castDuration) / 10 }} s</div>
+        <div>{{ parseInt(castDuration) / 10 }}s</div>
       </div>
       <div class="col-3 row">
         <div class="q-mr-xs">CD:</div>
-        <div>{{ cooldown }}</div>
+        <div>{{ initialCooldown }}-{{ maxCooldown }}s</div>
       </div>
     </div>
 
@@ -29,6 +29,8 @@
 </template>
 
 <script>
+import { evaluate } from "mathjs";
+
 export default {
   name: "SkillInfo",
   props: {
@@ -36,7 +38,21 @@ export default {
     rowTypeAfterCast: Number,
     castDuration: String,
     cooldown: String,
+    maxLevel: Number,
     display: String,
+  },
+  computed: {
+    initialCooldown: function () {
+      const expression = this.cooldown.replace("level", "1");
+      return evaluate(expression) / 10;
+    },
+    maxCooldown: function () {
+      const expression = this.cooldown.replace(
+        "level",
+        this.maxLevel.toString()
+      );
+      return evaluate(expression) / 10;
+    },
   },
 };
 </script>
